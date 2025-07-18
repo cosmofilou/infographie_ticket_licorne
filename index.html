@@ -60,7 +60,6 @@
             height: 100%; /* Ensure card takes full height of grid cell */
             padding: 1.5rem; /* Consistent padding */
             text-align: center;
-            /* Removed width: 100%; to let grid control width */
         }
         .step-icon-bg {
             background-color: var(--sf-blue-primary);
@@ -115,7 +114,6 @@
             height: 100%;
             padding: 1.5rem;
             text-align: center;
-            /* Removed width: 100%; to let grid control width */
         }
         .evolution-icon-bg {
             background-color: #2ECC71;
@@ -302,8 +300,9 @@
             grid-template-columns: 1fr; /* Single column for mobile */
             gap: 2rem;
             align-items: stretch;
-            justify-items: center;
+            /* Removed justify-items: center; to allow full width stretch */
             max-width: 100%; /* Ensure it doesn't overflow */
+            width: 100%; /* Ensure it takes full available width */
         }
 
         /* Adjusted title font size for h2 within step-card */
@@ -326,8 +325,9 @@
             grid-template-columns: 1fr; /* Single column for mobile */
             gap: 2rem;
             align-items: stretch;
-            justify-items: center;
+            /* Removed justify-items: center; to allow full width stretch */
             max-width: 100%; /* Ensure it doesn't overflow */
+            width: 100%; /* Ensure it takes full available width */
         }
 
         @media (min-width: 768px) {
