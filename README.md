@@ -1,39 +1,43 @@
-# Le Parcours du Ticket Licorne - Infographie Proxiserve
+# 🇫🇷 Présentation Interactive : Le Parcours du Ticket Licorne 🚀
 
-Cette infographie interactive et adaptative a été conçue pour servir de feuille de route essentielle aux assistants projet IT Salesforce chez Proxiserve Comptage. Elle détaille le processus de gestion des incidents et des demandes d'évolution liés à l'outil Licorne, en mettant en lumière les étapes clés, les outils utilisés (Freshservice, Notion) et les points d'attention cruciaux.
+---
 
-## Objectif
+## Description du Projet
 
-Faciliter la prise en main et la compréhension du cycle de vie des tickets pour les nouveaux arrivants, tout en assurant une vision claire et synthétique des procédures opérationnelles.
+Ce dépôt contient une infographie interactive et visuelle qui explique simplement le processus de traitement des incidents et des demandes d'évolution liés à l'outil Licorne. Elle est conçue pour être consultable facilement sur ordinateur et smartphone, en s'adaptant aux modes clair et sombre.
 
-## Fonctionnalités
+---
 
-- **Visuel Clair et Ludique** : Représentation étape par étape du parcours du ticket.
-- **Adaptatif (Responsive Design)** : Optimisé pour un affichage sur PC, tablettes et smartphones.
-- **Modes Clair/Sombre** : S'adapte nativement aux préférences de l'appareil.
-- **Conformité Charte Graphique** : Utilise les couleurs de la charte Salesforce et de Notion pour une cohérence visuelle.
-- **Points d'Attention Mis en Évidence** : Alertes visuelles pour les étapes critiques (ex: surveillance du backlog N1).
-- **Détails Opérationnels** : Informations précises sur les classifications, les filtres et les champs à renseigner.
+## Accéder à la Présentation
+
+Cliquez ci-dessous pour découvrir l'infographie en ligne :
+
+✨ [Ouvrir l'Infographie du Parcours du Ticket](index.html) ✨
+
+*(Si la page ne s'affiche pas correctement, essayez de vider le cache de votre navigateur ou d'utiliser la navigation privée.)*
+
+---
 
 ## Technologies Utilisées
 
-- HTML5
-- CSS3 (avec Tailwind CSS pour la rapidité de développement et le responsive design)
-- JavaScript (pour les interactions minimales, si ajoutées ultérieurement)
+-   HTML5
+-   CSS (via Tailwind CSS)
+-   JavaScript
 
-## Comment utiliser l'infographie ?
+---
 
-Il suffit d'ouvrir le fichier `index.html` dans n'importe quel navigateur web. L'infographie s'adaptera automatiquement à la taille de votre écran et à votre thème de couleur préféré (clair ou sombre).
+## Contribution
 
-## Structure du Dépôt
+Ce projet est une ressource à usage interne.
 
-index.html          # Le fichier principal de l'infographie
-README.md           # Ce fichier
-.gitignore          # Fichier pour ignorer les fichiers non pertinents pour Git
+---
 
+## Auteur
 
-## Mentions Légales
+Créé avec l'assistance d'un modèle d'IA générative.
 
+---
+
+Document à usage interne - Version 2025.07
 © 2025 Proxiserve Comptage. Tous droits réservés.
 Reproduction interdite sans autorisation.
-Document interne - Confidentiel.
