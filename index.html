@@ -85,8 +85,18 @@
             border-radius: 0.5rem;
             margin-top: 1rem;
             width: 100%;
-            text-align: left;
+            text-align: left; /* Default to left for content */
             font-weight: 600;
+        }
+        .alert-box .alert-title {
+            font-size: 1.25rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 0.25rem;
+            text-align: center; /* Centered title */
+        }
+        .alert-box .alert-text {
+            font-size: 1rem; /* text-md */
+            line-height: 1.5; /* leading-relaxed */
         }
         .footer-section {
             background-color: var(--sf-gray-medium);
@@ -267,6 +277,12 @@
             justify-items: center;
         }
 
+        /* Adjusted title font size for h2 within step-card */
+        .step-card h2 {
+            font-size: 1.75rem; /* Default text-2xl is 1.5rem, this makes it slightly larger */
+            line-height: 1.2; /* Adjust line height for better spacing */
+        }
+
         @media (min-width: 1024px) { /* Desktop layout for 3x2 grid */
             .incident-flow-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -290,6 +306,20 @@
                 grid-auto-rows: 1fr;
                 gap: 1.5rem;
             }
+        }
+        /* Style for Freshservice logo */
+        .freshservice-logo {
+            height: 2.5rem; /* Increased height */
+            width: auto;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        /* Style for Notion logo */
+        .notion-logo {
+            height: 2.5rem; /* Increased height */
+            width: auto;
+            margin-left: 0.5rem;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -334,9 +364,9 @@
                     </p>
                 </div>
                 <div class="alert-box text-sm font-semibold">
-                    <p class="font-bold mb-1">📢 Procédure Freshservice :</p>
-                    <p class="text-sm">
-                        1. Connectez-vous à <a href="https://proxisupport.freshservice.com" target="_blank" class="underline font-bold">proxisupport.freshservice.com</a><br>
+                    <p class="alert-title">📢 Procédure Freshservice</p>
+                    <p class="alert-text">
+                        1. Connectez-vous à Freshservice.<br>
                         2. Cliquez sur "Nouvel Incident" ou "Nouvelle Demande" dans le menu principal.<br>
                         3. Remplissez tous les champs avec un maximum de détails : description précise du problème, module Licorne concerné, impact, et n'oubliez pas d'ajouter des captures d'écran si pertinent.<br>
                         4. Validez votre ticket pour soumission.
@@ -352,12 +382,16 @@
             <div class="step-card rounded-xl w-full">
                 <div class="flex flex-col items-center">
                     <div class="step-icon-bg">2</div>
-                    <h2 class="text-2xl font-bold mb-2">Enregistrement Freshservice</h2>
+                    <h2 class="text-2xl font-bold mb-2">
+                        Enregistrement Freshservice
+                        <!-- Freshservice Logo: Insérez votre balise <img> ici -->
+                        <!-- Exemple: <img src="URL_DE_VOTRE_LOGO_FRESHSERVICE" alt="Freshservice Logo" class="freshservice-logo" /> -->
+                    </h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
                         Une fois soumis, le ticket est automatiquement créé et classé en <strong class="font-extrabold">Niveau 1 (N1)</strong> dans Freshservice. Cette catégorisation initiale s'effectue selon la région de l'utilisateur, permettant un aiguillage rapide et optimisé vers l'équipe N1 appropriée pour une première analyse et une prise en charge efficace de l'incident.
                     </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Classification Régionale :</p>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                    <p class="text-md text-gray-600 dark:text-gray-400 mt-3 font-semibold text-left w-full">Classification Régionale :</p>
+                    <ul class="text-md text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
                         <li>PXS_CPT-NE_Licorne_N1 (Nord/Est/Centre-Est)</li>
                         <li>PXS_CPT-IDF_Licorne_N1 (Île-de-France)</li>
                         <li>PXS_CPT-O_Licorne_N1 (Ouest)</li>
@@ -374,17 +408,18 @@
                     <p class="text-md text-gray-700 dark:text-gray-300">
                         Un membre de l'équipe N1 s'assigne le ticket pour en prendre la responsabilité. Votre rôle est crucial ici : surveiller attentivement l'évolution de ces tickets et s'assurer qu'aucun ne reste bloqué sans traitement, garantissant ainsi la fluidité du processus et la satisfaction utilisateur.
                     </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Filtres Freshservice essentiels :</p>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
-                        <li>Statut: Non résolu, En attente, Ouvert</li>
-                        <li>Département: PROXISERVE</li>
-                        <li>Groupes: Mes groupes</li>
+                    <p class="text-md text-gray-600 dark:text-gray-400 mt-3 font-semibold text-left w-full">Filtres Freshservice essentiels :</p>
+                    <ul class="text-md text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                        <li>Statut : Non résolu, En attente, Ouvert</li>
+                        <li>Département : PROXISERVE</li>
+                        <li>Groupes : Mes groupes</li>
                     </ul>
                 </div>
                 <div class="alert-box text-sm font-semibold">
-                    <p class="font-bold text-lg mb-1">⚠️ Point d'attention N2 (DMC) :</p>
-                    <p class="font-bold">Surveillez activement le backlog N1 sur Freshservice !</p>
-                    <p class="text-sm">Des tickets peuvent y rester bloqués ou non assignés, nécessitant votre intervention proactive pour une escalade rapide vers le N2, garantissant ainsi la fluidité du processus.</p>
+                    <p class="alert-title">⚠️ Point d'attention N2 (DMC)</p>
+                    <p class="alert-text">
+                        <strong class="font-bold">Surveillez activement le backlog N1 sur Freshservice !</strong> Des tickets peuvent y rester bloqués ou non assignés, nécessitant votre intervention proactive pour une escalade rapide vers le N2, garantissant ainsi la fluidité du processus.
+                    </p>
                 </div>
             </div>
 
@@ -398,8 +433,8 @@
                     </p>
                 </div>
                 <div class="alert-box text-sm font-semibold">
-                    <p class="font-bold text-lg mb-1">🚨 Escalade DSI (N3) :</p>
-                    <p class="text-sm">
+                    <p class="alert-title">🚨 Escalade DSI (N3)</p>
+                    <p class="alert-text">
                         L'escalade vers la DSI (Support N3 Licorne) ne doit être effectuée <strong class="font-bold">uniquement après une analyse approfondie</strong> et <strong class="font-bold">avec l'aval explicite d'Aurélien DA COSTA</strong>. En son absence, assurez-vous d'être absolument certain de la nécessité de l'escalade et de la nature de l'incident pour éviter toute surcharge inutile.
                     </p>
                 </div>
@@ -413,8 +448,8 @@
                     <p class="text-md text-gray-700 dark:text-gray-300">
                         À cette étape, l'équipe N2 procède à une analyse approfondie pour identifier l'origine de l'incident (bug technique, erreur de manipulation, etc.). La résolution est ensuite appliquée, ou l'incident est escaladé si sa complexité ou son impact le justifient, assurant une gestion complète du problème et une communication transparente avec les parties prenantes.
                     </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Vos objectifs opérationnels :</p>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                    <p class="text-md text-gray-600 dark:text-gray-400 mt-3 font-semibold text-left w-full">Vos objectifs opérationnels :</p>
+                    <ul class="text-md text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
                         <li>Assurer le traitement des incidents de niveau 1 et 2.</li>
                         <li>Accompagner les utilisateurs dans la résolution de leurs demandes.</li>
                         <li>Identifier s'il s'agit d'un bug technique ou d'une erreur de manipulation utilisateur.</li>
@@ -427,19 +462,23 @@
             <div class="step-card rounded-xl w-full">
                 <div class="flex flex-col items-center">
                     <div class="step-icon-bg">6</div>
-                    <h2 class="text-2xl font-bold mb-2">Suivi & Analyse Notion</h2>
+                    <h2 class="text-2xl font-bold mb-2">
+                        Suivi & Analyse Notion
+                        <!-- Notion Logo: Insérez votre balise <img> ici -->
+                        <!-- Exemple: <img src="URL_DE_VOTRE_LOGO_NOTION" alt="Notion Logo" class="notion-logo" /> -->
+                    </h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
                         Chaque incident résolu (ou demande d'évolution) est scrupuleusement enregistré dans <strong class="font-extrabold">Notion (Pipeline des remontées utilisateurs)</strong>. Cette base de données centralisée est indispensable pour la traçabilité complète, l'analyse fonctionnelle des problèmes récurrents et la constitution d'un historique détaillé. Elle permet d'alimenter les tableaux de bord décisionnels et d'identifier les axes d'amélioration.
                     </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Champs clés à remplir :</p>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                    <p class="text-md text-gray-600 dark:text-gray-400 mt-3 font-semibold text-left w-full">Champs clés à remplir :</p>
+                    <ul class="text-md text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
                         <li>Numéro OUV, Statut, Numéro Fresh</li>
                         <li>Périmètre, Description du problème</li>
                         <li>Analyse DT, Résultat / Solution</li>
                     </ul>
                 </div>
                 <div class="mt-4 w-full">
-                    <p class="text-sm notion-text-blue font-bold mb-2">Catégorisation ESSENTIELLE pour les stats :</p>
+                    <p class="text-md notion-text-blue font-bold mb-2 text-left">Catégorisation ESSENTIELLE pour les stats :</p>
                     <div class="flex flex-wrap justify-center">
                         <span class="notion-category-tile red">🔴 Dysfonctionnement</span>
                         <span class="notion-category-tile green">✅ Corrections</span>
@@ -475,8 +514,8 @@
                     <p class="text-md text-gray-700 dark:text-gray-300">
                         Toute demande d'évolution fonctionnelle ou technique doit être initiée par un email détaillé. C'est le canal officiel pour soumettre des propositions d'amélioration et de nouvelles fonctionnalités, garantissant une bonne compréhension du besoin et une traçabilité dès l'origine du projet.
                     </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Destinataires :</p>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                    <p class="text-md text-gray-600 dark:text-gray-400 mt-3 font-semibold text-left w-full">Destinataires :</p>
+                    <ul class="text-md text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
                         <li><strong class="font-extrabold">Aurélien DA COSTA (Chef de Projet)</strong></li>
                         <li><strong class="font-extrabold">Copie à l'Assistant IT</strong> (pour traçabilité et suivi initial)</li>
                     </ul>
@@ -488,10 +527,12 @@
                 <div class="flex flex-col items-center">
                     <div class="evolution-icon-bg">📊</div>
                     <h3 class="text-2xl font-bold mb-2">Enregistrement dans Notion</h3>
+                    <!-- Emplacement pour le logo Notion -->
+                    <img src="https://placehold.co/100x24/cccccc/333333?text=Notion+Logo" alt="Notion Logo" class="notion-logo" onerror="this.onerror=null;this.src='https://placehold.co/100x24/cccccc/333333?text=Notion+Logo';" />
                     <p class="text-md text-gray-700 dark:text-gray-300">
                         Ces demandes, une fois reçues, doivent être obligatoirement inscrites dans le <strong class="font-extrabold">Pipeline des remontées sur Notion</strong>. Cette étape est cruciale pour centraliser toutes les demandes d'évolution, assurer leur suivi, les préparer pour l'analyse et la décision, et maintenir une vision globale des projets en cours.
                     </p>
-                    <p class="text-sm notion-text-blue font-bold mt-4">Catégorisation ESSENTIELLE :</p>
+                    <p class="text-md notion-text-blue font-bold mt-4 text-left w-full">Catégorisation ESSENTIELLE :</p>
                     <div class="flex flex-wrap justify-center">
                         <span class="notion-category-tile red">🔴 Dysfonctionnement</span>
                         <span class="notion-category-tile green">✅ Corrections</span>
@@ -524,22 +565,22 @@
             <div class="container-card p-6 rounded-xl flex flex-col items-center text-center">
                 <div class="text-5xl mb-3">🎯</div>
                 <h3 class="text-xl font-semibold mb-2">Ciblage Précis</h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300">Identifier les besoins en accompagnement et formation complémentaire.</p>
+                <p class="text-md text-gray-700 dark:text-gray-300">Identifier les besoins en accompagnement et formation complémentaire.</p>
             </div>
             <div class="container-card p-6 rounded-xl flex flex-col items-center text-center">
                 <div class="text-5xl mb-3">💡</div>
                 <h3 class="text-xl font-semibold mb-2">Compréhension des Blocages</h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300">Mieux comprendre les difficultés utilisateurs (bugs vs. erreurs de manipulation).</p>
+                <p class="text-md text-gray-700 dark:text-gray-300">Mieux comprendre les difficultés utilisateurs (bugs vs. erreurs de manipulation).</p>
             </div>
             <div class="container-card p-6 rounded-xl flex flex-col items-center text-center">
                 <div class="text-5xl mb-3">⚡</div>
                 <h3 class="text-xl font-semibold mb-2">Détection Rapide</h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300">Repérer vite les modules Licorne instables ou mal compris.</p>
+                <p class="text-md text-gray-700 dark:text-gray-300">Repérer vite les modules Licorne instables ou mal compris.</p>
             </div>
             <div class="container-card p-6 rounded-xl flex flex-col items-center text-center">
                 <div class="text-5xl mb-3">📈</div>
                 <h3 class="text-xl font-semibold mb-2">Améliorations Proposées</h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300">Argumenter les évolutions ou corrections auprès de la DSI.</p>
+                <p class="text-md text-gray-700 dark:text-gray-300">Argumenter les évolutions ou corrections auprès de la DSI.</p>
             </div>
         </div>
     </section>
