@@ -21,7 +21,7 @@
             --sf-text-light: #FFFFFF;
             --sf-alert-red: #C23934;
             --sf-alert-red-bg: #FCEAEA;
-            --sf-alert-red-darker-border: #A62F2B; /* Darker red for border */
+            --sf-alert-red-darker-border: #A62F2B;
         }
 
         /* Notion Light Theme Colors */
@@ -54,36 +54,36 @@
             background-color: #ffffff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             border: 1px solid var(--sf-blue-primary);
-            display: flex; /* Use flex for internal content alignment */
+            display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Pushes content to top/bottom */
-            height: 100%; /* Ensure card takes full height of grid cell */
-            padding: 1.5rem; /* Consistent padding */
+            justify-content: space-between;
+            height: 100%;
+            padding: 1.5rem;
             text-align: center;
         }
         .step-icon-bg {
             background-color: var(--sf-blue-primary);
             color: var(--sf-text-light);
-            width: 4rem; /* Fixed icon size */
+            width: 4rem;
             height: 4rem;
-            border-radius: 9999px; /* Circle */
+            border-radius: 9999px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.25rem; /* Larger number */
-            font-weight: 700; /* Bold number */
-            margin-bottom: 1rem; /* Space below icon */
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
         .arrow-icon {
-            display: none !important; /* Ensure arrows are hidden */
+            display: none !important;
         }
         .alert-box {
             background-color: var(--sf-alert-red-bg);
             color: var(--sf-alert-red);
-            border: 2px solid var(--sf-alert-red-darker-border); /* Thicker, darker border */
-            padding: 1rem; /* More padding */
+            border: 2px solid var(--sf-alert-red-darker-border);
+            padding: 1rem;
             border-radius: 0.5rem;
-            margin-top: 1rem; /* More space */
+            margin-top: 1rem;
             width: 100%;
             text-align: left;
             font-weight: 600;
@@ -95,35 +95,111 @@
 
         /* Evolution Flow Card (Salesforce inspired green) */
         .evolution-flow-card {
-            background-color: #e6ffe6; /* Lighter green */
+            background-color: #e6ffe6;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            border: 1px solid #2ECC71; /* Green */
-            display: flex; /* Use flex for internal content alignment */
+            border: 1px solid #2ECC71;
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            padding: 1.5rem; /* Consistent padding */
+            padding: 1.5rem;
             text-align: center;
         }
         .evolution-icon-bg {
-            background-color: #2ECC71; /* Green */
+            background-color: #2ECC71;
             color: #ffffff;
-            width: 4rem; /* Fixed icon size */
+            width: 4rem;
             height: 4rem;
-            border-radius: 9999px; /* Circle */
+            border-radius: 9999px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.25rem; /* Larger icon */
+            font-size: 2.25rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
+        /* Notion Category Tiles */
+        .notion-category-tile {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0.25rem;
+            white-space: nowrap;
+        }
+        .notion-category-tile.red { background-color: #E74C3C; }
+        .notion-category-tile.green { background-color: #2ECC71; }
+        .notion-category-tile.orange { background-color: #F39C12; }
+        .notion-category-tile.blue { background-color: #2296F3; }
+        .notion-category-tile.purple { background-color: #9B59B6; }
+        .notion-category-tile.yellow { background-color: #F1C40F; }
+
+        /* Freshservice Button Style */
+        .fs-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--sf-blue-primary);
+            color: var(--sf-text-light);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            margin-top: 1rem; /* Space from text above */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .fs-button:hover {
+            background-color: var(--sf-blue-dark);
+            transform: translateY(-1px);
+        }
+        .fs-button:active {
+            transform: translateY(0);
+        }
+        .fs-button svg {
+            margin-right: 0.5rem;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 0.5rem;
+        }
+        .progress-dot {
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--sf-blue-primary);
+            border-radius: 9999px;
+            opacity: 0.4; /* Inactive */
+            transition: opacity 0.3s ease-in-out;
+        }
+        .progress-dot.active {
+            opacity: 1; /* Active */
+        }
+        .progress-line {
+            height: 0.25rem;
+            background-color: var(--sf-blue-primary);
+            width: 2rem;
+            opacity: 0.4;
+            transition: opacity 0.3s ease-in-out;
+        }
+        /* Active state for lines (optional, if we want lines to light up) */
+        /* .progress-line.active { opacity: 1; } */
+
+
         /* Dark mode (Salesforce inspired) */
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #1A202C; /* Dark background */
-                color: #E2E8F0; /* Light text, adjusted below */
+                background-color: #1A202C;
+                color: #E2E8F0;
             }
             .container-card {
                 background-color: #2D3748;
@@ -131,7 +207,7 @@
                 border: 1px solid #4A5568;
             }
             .header-section {
-                background-color: #005FB2; /* Darker Salesforce Blue */
+                background-color: #005FB2;
                 color: #E2E8F0;
             }
             .step-card {
@@ -144,34 +220,41 @@
                 color: #E2E8F0;
             }
             .alert-box {
-                background-color: #450A0A; /* Darker red for alert background */
-                color: #FCA5A5; /* Lighter red for alert text */
-                border: 2px solid #EF4444; /* Thicker, brighter red border */
+                background-color: #450A0A;
+                color: #FCA5A5;
+                border: 2px solid #EF4444;
             }
             .footer-section {
                 background-color: #4A5568;
                 color: #E2E8F0;
             }
-            /* Evolution Flow Card (Dark mode green) */
             .evolution-flow-card {
-                background-color: #064E3B; /* Darker green */
+                background-color: #064E3B;
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
                 border: 1px solid #10B981;
             }
             .evolution-icon-bg {
-                background-color: #10B981; /* Lighter green */
+                background-color: #10B981;
                 color: #1A202C;
             }
 
             /* Adjust text colors for better legibility in dark mode */
             .text-gray-700.dark\:text-gray-300 {
-                color: #E2E8F0; /* Very light gray for main text */
+                color: #E2E8F0;
             }
             .text-gray-600.dark\:text-gray-400 {
-                color: #CBD5E0; /* Lighter gray for secondary text */
+                color: #CBD5E0;
             }
-            .text-gray-500 { /* For tool names like "Outil: Freshservice" */
-                color: #F3F4F6; /* Almost white for subtle text for maximum visibility */
+            .text-gray-500 {
+                color: #FFFFFF; /* Explicitly white for tool names */
+            }
+
+            /* Progress Indicator Dark Mode */
+            .progress-dot {
+                background-color: #63B3ED; /* Lighter blue for dark mode */
+            }
+            .progress-line {
+                background-color: #63B3ED;
             }
         }
 
@@ -179,16 +262,16 @@
         .incident-flow-grid {
             display: grid;
             grid-template-columns: 1fr; /* Single column for mobile */
-            gap: 2rem; /* Gap between rows/columns */
-            align-items: stretch; /* Ensures items in a row stretch to same height */
-            justify-items: center; /* Center items horizontally in their grid cell */
+            gap: 2rem;
+            align-items: stretch;
+            justify-items: center;
         }
 
         @media (min-width: 1024px) { /* Desktop layout for 3x2 grid */
             .incident-flow-grid {
-                grid-template-columns: repeat(3, 1fr); /* 3 columns */
-                grid-auto-rows: 1fr; /* Ensures all rows have same height */
-                gap: 1.5rem; /* Smaller gap for tighter layout */
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 1fr;
+                gap: 1.5rem;
             }
         }
 
@@ -203,19 +286,11 @@
 
         @media (min-width: 768px) {
             .evolution-flow-grid {
-                grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+                grid-template-columns: repeat(3, 1fr);
                 grid-auto-rows: 1fr;
                 gap: 1.5rem;
             }
         }
-
-        /* Specific Notion colors for text */
-        .notion-text-blue { color: var(--notion-blue); }
-        .notion-text-green { color: var(--notion-green); }
-        .notion-text-orange { color: var(--notion-orange); }
-        .notion-text-red { color: var(--notion-red); }
-        .notion-text-purple { color: var(--notion-purple); }
-        .notion-text-yellow { color: var(--notion-yellow); }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -236,6 +311,17 @@
     <!-- Section: Déclaration d'Incident -->
     <section class="mb-16 max-w-6xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">Flux Principal : Déclaration d'Incident</h2>
+
+        <!-- Progress Indicator for Incident Flow -->
+        <div class="progress-indicator mb-8">
+            <div class="progress-dot active"></div><div class="progress-line"></div>
+            <div class="progress-dot active"></div><div class="progress-line"></div>
+            <div class="progress-dot active"></div><div class="progress-line"></div>
+            <div class="progress-dot active"></div><div class="progress-line"></div>
+            <div class="progress-dot active"></div><div class="progress-line"></div>
+            <div class="progress-dot active"></div>
+        </div>
+
         <div class="incident-flow-grid">
 
             <!-- Step 1: Signalement Utilisateur -->
@@ -255,6 +341,10 @@
                         3. Remplissez tous les champs avec un maximum de détails : description précise du problème, module Licorne concerné, impact, et n'oubliez pas d'ajouter des captures d'écran si pertinent.<br>
                         4. Validez votre ticket pour soumission.
                     </p>
+                    <a href="https://proxisupport.freshservice.com" target="_blank" class="fs-button">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        Accéder à Freshservice
+                    </a>
                 </div>
             </div>
 
@@ -264,7 +354,7 @@
                     <div class="step-icon-bg">2</div>
                     <h2 class="text-2xl font-bold mb-2">Enregistrement Freshservice</h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        Une fois soumis, le ticket est automatiquement créé et classé en <strong class="font-extrabold">Niveau 1 (N1)</strong> dans Freshservice. Cette catégorisation initiale s'effectue selon la région de l'utilisateur, permettant un aiguillage rapide et optimisé vers l'équipe N1 appropriée pour une première analyse.
+                        Une fois soumis, le ticket est automatiquement créé et classé en <strong class="font-extrabold">Niveau 1 (N1)</strong> dans Freshservice. Cette catégorisation initiale s'effectue selon la région de l'utilisateur, permettant un aiguillage rapide et optimisé vers l'équipe N1 appropriée pour une première analyse et une prise en charge efficace de l'incident.
                     </p>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Classification Régionale :</p>
                     <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
@@ -273,7 +363,7 @@
                         <li>PXS_CPT-O_Licorne_N1 (Ouest)</li>
                     </ul>
                 </div>
-                <p class="text-sm text-gray-500 mt-4">Outil: Freshservice</p>
+                <p class="text-sm text-gray-500 mt-4">Outil : Freshservice</p>
             </div>
 
             <!-- Step 3: Assignation & Surveillance (N1) -->
@@ -282,7 +372,7 @@
                     <div class="step-icon-bg">3</div>
                     <h2 class="text-2xl font-bold mb-2">Assignation & Surveillance (N1)</h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        Un membre de l'équipe N1 s'assigne le ticket pour en prendre la responsabilité. Votre rôle est crucial ici : surveiller attentivement l'évolution de ces tickets et s'assurer qu'aucun ne reste bloqué sans traitement.
+                        Un membre de l'équipe N1 s'assigne le ticket pour en prendre la responsabilité. Votre rôle est crucial ici : surveiller attentivement l'évolution de ces tickets et s'assurer qu'aucun ne reste bloqué sans traitement, garantissant ainsi la fluidité du processus et la satisfaction utilisateur.
                     </p>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Filtres Freshservice essentiels :</p>
                     <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
@@ -304,7 +394,13 @@
                     <div class="step-icon-bg">4</div>
                     <h2 class="text-2xl font-bold mb-2">Affectation au N2</h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        Lorsque l'incident dépasse le périmètre de résolution du N1, requiert une expertise technique plus pointue, ou ne peut être résolu immédiatement, le ticket est transféré au groupe <strong class="font-extrabold">N2 : Support-DMC-Licorne-N2</strong>. Cette escalade assure que les problèmes complexes sont pris en charge par l'équipe spécialisée, optimisant ainsi le temps de résolution.
+                        Lorsque l'incident dépasse le périmètre de résolution du N1, requiert une expertise technique plus pointue, ou ne peut être résolu immédiatement, le ticket est transféré au groupe <strong class="font-extrabold">N2 : Support-DMC-Licorne-N2</strong>. Cette escalade assure que les problèmes complexes sont pris en charge par l'équipe spécialisée, optimisant ainsi le temps de résolution et la qualité du support.
+                    </p>
+                </div>
+                <div class="alert-box text-sm font-semibold">
+                    <p class="font-bold text-lg mb-1">🚨 Escalade DSI (N3) :</p>
+                    <p class="text-sm">
+                        L'escalade vers la DSI (Support N3 Licorne) ne doit être effectuée **uniquement après une analyse approfondie** et **avec l'aval explicite d'Aurélien DA COSTA**. En son absence, assurez-vous d'être absolument certain de la nécessité de l'escalade et de la nature de l'incident pour éviter toute surcharge inutile.
                     </p>
                 </div>
             </div>
@@ -315,7 +411,7 @@
                     <div class="step-icon-bg">5</div>
                     <h2 class="text-2xl font-bold mb-2">Traitement de l'Incident</h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        À cette étape, l'équipe N2 procède à une analyse approfondie pour identifier l'origine de l'incident (bug technique, erreur de manipulation, etc.). La résolution est ensuite appliquée, ou l'incident est escaladé si sa complexité ou son impact le justifient, assurant une gestion complète du problème et une communication transparente.
+                        À cette étape, l'équipe N2 procède à une analyse approfondie pour identifier l'origine de l'incident (bug technique, erreur de manipulation, etc.). La résolution est ensuite appliquée, ou l'incident est escaladé si sa complexité ou son impact le justifient, assurant une gestion complète du problème et une communication transparente avec les parties prenantes.
                     </p>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Vos objectifs opérationnels :</p>
                     <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
@@ -333,7 +429,7 @@
                     <div class="step-icon-bg">6</div>
                     <h2 class="text-2xl font-bold mb-2">Suivi & Analyse Notion</h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        Chaque incident résolu (ou demande d'évolution) est scrupuleusement enregistré dans <strong class="font-extrabold">Notion (Pipeline des remontées utilisateurs)</strong>. Cette base de données centralisée est indispensable pour la traçabilité complète, l'analyse fonctionnelle des problèmes récurrents et la constitution d'un historique détaillé. Elle permet d'alimenter les tableaux de bord décisionnels.
+                        Chaque incident résolu (ou demande d'évolution) est scrupuleusement enregistré dans <strong class="font-extrabold">Notion (Pipeline des remontées utilisateurs)</strong>. Cette base de données centralisée est indispensable pour la traçabilité complète, l'analyse fonctionnelle des problèmes récurrents et la constitution d'un historique détaillé. Elle permet d'alimenter les tableaux de bord décisionnels et d'identifier les axes d'amélioration.
                     </p>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Champs clés à remplir :</p>
                     <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
@@ -342,16 +438,18 @@
                         <li>Analyse DT, Résultat / Solution</li>
                     </ul>
                 </div>
-                <p class="text-sm notion-text-blue font-bold mt-4">Catégorisation ESSENTIELLE pour les stats :</p>
-                <ul class="text-sm list-disc list-inside text-left w-full pl-4">
-                    <li class="notion-text-red">Dysfonctionnement</li>
-                    <li class="notion-text-green">Corrections</li>
-                    <li class="notion-text-orange">Erreurs utilisateurs</li>
-                    <li class="notion-text-blue">Évolution</li>
-                    <li class="notion-text-purple">GAP Analysis</li>
-                    <li class="notion-text-yellow">Délais synchro</li>
-                </ul>
-                <p class="text-sm text-gray-500 mt-4">Outil: Notion</p>
+                <div class="mt-4 w-full">
+                    <p class="text-sm notion-text-blue font-bold mb-2">Catégorisation ESSENTIELLE pour les stats :</p>
+                    <div class="flex flex-wrap justify-center">
+                        <span class="notion-category-tile red">🔴 Dysfonctionnement</span>
+                        <span class="notion-category-tile green">✅ Corrections</span>
+                        <span class="notion-category-tile orange">🧑‍💻 Erreurs utilisateurs</span>
+                        <span class="notion-category-tile blue">✨ Évolution</span>
+                        <span class="notion-category-tile purple">🔍 GAP Analysis</span>
+                        <span class="notion-category-tile yellow">⏳ Délais synchro</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">Outil : Notion</p>
             </div>
 
         </div>
@@ -383,17 +481,17 @@
                     <div class="evolution-icon-bg">📊</div>
                     <h3 class="text-2xl font-bold mb-2">Enregistrement dans Notion</h3>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        Ces demandes, une fois reçues, doivent être obligatoirement inscrites dans le <strong class="font-extrabold">Pipeline des remontées sur Notion</strong>. Cette étape est cruciale pour centraliser toutes les demandes d'évolution, assurer leur suivi, les préparer pour l'analyse et la décision, et maintenir une vision globale des projets.
+                        Ces demandes, une fois reçues, doivent être obligatoirement inscrites dans le <strong class="font-extrabold">Pipeline des remontées sur Notion</strong>. Cette étape est cruciale pour centraliser toutes les demandes d'évolution, assurer leur suivi, les préparer pour l'analyse et la décision, et maintenir une vision globale des projets en cours.
                     </p>
                     <p class="text-sm notion-text-blue font-bold mt-4">Catégorisation ESSENTIELLE :</p>
-                    <ul class="text-sm list-disc list-inside text-left w-full pl-4">
-                        <li class="notion-text-red">Dysfonctionnement</li>
-                        <li class="notion-text-green">Corrections</li>
-                        <li class="notion-text-orange">Erreurs utilisateurs</li>
-                        <li class="notion-text-blue">Évolution</li>
-                        <li class="notion-text-purple">GAP Analysis</li>
-                        <li class="notion-text-yellow">Délais synchro</li>
-                    </ul>
+                    <div class="flex flex-wrap justify-center">
+                        <span class="notion-category-tile red">🔴 Dysfonctionnement</span>
+                        <span class="notion-category-tile green">✅ Corrections</span>
+                        <span class="notion-category-tile orange">🧑‍💻 Erreurs utilisateurs</span>
+                        <span class="notion-category-tile blue">✨ Évolution</span>
+                        <span class="notion-category-tile purple">🔍 GAP Analysis</span>
+                        <span class="notion-category-tile yellow">⏳ Délais synchro</span>
+                    </div>
                 </div>
             </div>
 
@@ -405,7 +503,7 @@
                     <p class="text-md text-gray-700 dark:text-gray-300">
                         Les demandes d'évolution enregistrées dans Notion sont ensuite analysées en profondeur par la Direction Technique. C'est à cette étape que les décisions sont prises concernant la faisabilité technique, la priorisation et la planification des développements futurs, en accord avec la stratégie globale et les ressources disponibles.
                     </p>
-                    <p class="text-sm text-gray-500 mt-4">Outil: Notion</p>
+                    <p class="text-sm text-gray-500 mt-4">Outil : Notion</p>
                 </div>
             </div>
         </div>
