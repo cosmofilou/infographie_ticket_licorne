@@ -21,6 +21,7 @@
             --sf-text-light: #FFFFFF;
             --sf-alert-red: #C23934;
             --sf-alert-red-bg: #FCEAEA;
+            --sf-alert-red-darker-border: #A62F2B; /* Darker red for border */
         }
 
         /* Notion Light Theme Colors */
@@ -57,18 +58,35 @@
             flex-direction: column;
             justify-content: space-between; /* Pushes content to top/bottom */
             height: 100%; /* Ensure card takes full height of grid cell */
+            padding: 1.5rem; /* Consistent padding */
+            text-align: center;
         }
         .step-icon-bg {
             background-color: var(--sf-blue-primary);
             color: var(--sf-text-light);
+            width: 4rem; /* Fixed icon size */
+            height: 4rem;
+            border-radius: 9999px; /* Circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.25rem; /* Larger number */
+            font-weight: 700; /* Bold number */
+            margin-bottom: 1rem; /* Space below icon */
         }
         .arrow-icon {
-            color: var(--sf-blue-primary);
+            display: none !important; /* Ensure arrows are hidden */
         }
         .alert-box {
             background-color: var(--sf-alert-red-bg);
             color: var(--sf-alert-red);
-            border: 1px solid var(--sf-alert-red);
+            border: 2px solid var(--sf-alert-red-darker-border); /* Thicker, darker border */
+            padding: 1rem; /* More padding */
+            border-radius: 0.5rem;
+            margin-top: 1rem; /* More space */
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
         }
         .footer-section {
             background-color: var(--sf-gray-medium);
@@ -84,17 +102,28 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+            padding: 1.5rem; /* Consistent padding */
+            text-align: center;
         }
         .evolution-icon-bg {
             background-color: #2ECC71; /* Green */
             color: #ffffff;
+            width: 4rem; /* Fixed icon size */
+            height: 4rem;
+            border-radius: 9999px; /* Circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.25rem; /* Larger icon */
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         /* Dark mode (Salesforce inspired) */
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #1A202C; /* Dark background */
-                color: #E2E8F0; /* Light text */
+                color: #E2E8F0; /* Light text, adjusted below */
             }
             .container-card {
                 background-color: #2D3748;
@@ -114,13 +143,10 @@
                 background-color: #005FB2;
                 color: #E2E8F0;
             }
-            .arrow-icon {
-                color: #63B3ED; /* Lighter blue for arrows */
-            }
             .alert-box {
-                background-color: #450A0A;
-                color: #FCA5A5;
-                border: 1px solid #EF4444;
+                background-color: #450A0A; /* Darker red for alert background */
+                color: #FCA5A5; /* Lighter red for alert text */
+                border: 2px solid #EF4444; /* Thicker, brighter red border */
             }
             .footer-section {
                 background-color: #4A5568;
@@ -136,10 +162,21 @@
                 background-color: #10B981; /* Lighter green */
                 color: #1A202C;
             }
+
+            /* Adjust text colors for better legibility in dark mode */
+            .text-gray-700.dark\:text-gray-300 {
+                color: #E2E8F0; /* Very light gray for main text */
+            }
+            .text-gray-600.dark\:text-gray-400 {
+                color: #CBD5E0; /* Lighter gray for secondary text */
+            }
+            .text-gray-500 { /* For tool names like "Outil: Freshservice" */
+                color: #F3F4F6; /* Almost white for subtle text for maximum visibility */
+            }
         }
 
-        /* Grid Layout for main flow */
-        .main-flow-grid {
+        /* Grid Layout for main flow - Incident Declaration */
+        .incident-flow-grid {
             display: grid;
             grid-template-columns: 1fr; /* Single column for mobile */
             gap: 2rem; /* Gap between rows/columns */
@@ -147,32 +184,11 @@
             justify-items: center; /* Center items horizontally in their grid cell */
         }
 
-        /* Arrows for mobile */
-        .main-flow-grid .arrow-mobile {
-            display: block;
-            font-size: 4rem; /* Larger arrow */
-            line-height: 1;
-            margin: 0 auto; /* Center arrow */
-        }
-        .main-flow-grid .arrow-desktop {
-            display: none; /* Hide desktop arrow on mobile */
-        }
-
-        @media (min-width: 768px) {
-            .main-flow-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+        @media (min-width: 1024px) { /* Desktop layout for 3x2 grid */
+            .incident-flow-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns */
                 grid-auto-rows: 1fr; /* Ensures all rows have same height */
-            }
-            .main-flow-grid .arrow-mobile {
-                display: none; /* Hide mobile arrow on desktop */
-            }
-            .main-flow-grid .arrow-desktop {
-                display: flex; /* Show desktop arrow on desktop */
-                align-items: center;
-                justify-content: center;
-                font-size: 4rem; /* Larger arrow */
-                line-height: 1;
-                margin: 0; /* No margin */
+                gap: 1.5rem; /* Smaller gap for tighter layout */
             }
         }
 
@@ -184,31 +200,12 @@
             align-items: stretch;
             justify-items: center;
         }
-        .evolution-flow-grid .arrow-mobile {
-            display: block;
-            font-size: 4rem;
-            line-height: 1;
-            margin: 0 auto;
-        }
-        .evolution-flow-grid .arrow-desktop {
-            display: none;
-        }
 
         @media (min-width: 768px) {
             .evolution-flow-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two columns for desktop */
+                grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
                 grid-auto-rows: 1fr;
-            }
-            .evolution-flow-grid .arrow-mobile {
-                display: none;
-            }
-            .evolution-flow-grid .arrow-desktop {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 4rem;
-                line-height: 1;
-                margin: 0;
+                gap: 1.5rem;
             }
         }
 
@@ -236,156 +233,116 @@
         </p>
     </section>
 
-    <!-- Main Flow Section - Incident Journey -->
-    <section class="main-flow-grid mb-12 max-w-6xl mx-auto">
+    <!-- Section: Déclaration d'Incident -->
+    <section class="mb-16 max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">Flux Principal : Déclaration d'Incident</h2>
+        <div class="incident-flow-grid">
 
-        <!-- Step 1: Signalement Utilisateur -->
-        <div class="step-card p-6 rounded-xl text-center w-full">
-            <div class="flex flex-col items-center">
-                <div class="step-icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-4xl font-bold">1</div>
-                <h2 class="text-2xl font-bold mb-2">Signalement Utilisateur</h2>
-                <p class="text-md text-gray-700 dark:text-gray-300">
-                    L'incident est signalé via les canaux officiels : téléphone, mail, ou portail IT.
-                </p>
-            </div>
-            <div class="alert-box p-3 rounded-lg mt-3 w-full text-left text-sm font-semibold">
-                <p class="font-bold mb-1">📢 Important :</p>
-                <p class="font-bold">Habituez les utilisateurs à toujours créer un ticket Freshservice pour toute demande !</p>
-            </div>
-        </div>
-
-        <!-- Arrow -->
-        <div class="arrow-icon arrow-mobile">&#8659;</div>
-        <div class="arrow-icon arrow-desktop">&#10140;</div>
-
-        <!-- Step 2: Enregistrement Freshservice -->
-        <div class="step-card p-6 rounded-xl text-center w-full">
-            <div class="flex flex-col items-center">
-                <div class="step-icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-4xl font-bold">2</div>
-                <h2 class="text-2xl font-bold mb-2">Enregistrement Freshservice</h2>
-                <p class="text-md text-gray-700 dark:text-gray-300">
-                    Le ticket est automatiquement créé et classé en <strong class="font-extrabold">Niveau 1 (N1)</strong> dans Freshservice.
-                </p>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Classification Régionale :</p>
-                <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
-                    <li>PXS_CPT-NE_Licorne_N1 (Nord/Est/Centre-Est)</li>
-                    <li>PXS_CPT-IDF_Licorne_N1 (Île-de-France)</li>
-                    <li>PXS_CPT-O_Licorne_N1 (Ouest)</li>
-                </ul>
-            </div>
-            <p class="text-sm text-gray-500 mt-4">Outil: Freshservice</p>
-        </div>
-
-        <!-- Arrow -->
-        <div class="arrow-icon arrow-mobile">&#8659;</div>
-        <div class="arrow-icon arrow-desktop">&#10140;</div>
-
-        <!-- Step 3: Assignation & Surveillance (N1) -->
-        <div class="step-card p-6 rounded-xl text-center w-full">
-            <div class="flex flex-col items-center">
-                <div class="step-icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-4xl font-bold">3</div>
-                <h2 class="text-2xl font-bold mb-2">Assignation & Surveillance (N1)</h2>
-                <p class="text-md text-gray-700 dark:text-gray-300">
-                    Un membre de l'équipe N1 s'assigne le ticket pour prise en charge. Votre rôle est de suivre !
-                </p>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Filtres Freshservice essentiels :</p>
-                <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
-                    <li>Statut: Non résolu, En attente, Ouvert</li>
-                    <li>Département: PROXISERVE</li>
-                    <li>Groupes: Mes groupes</li>
-                </ul>
-            </div>
-            <div class="alert-box p-4 rounded-lg mt-4 w-full text-left font-semibold">
-                <p class="font-bold text-lg mb-1">⚠️ Point d'attention N2 (DMC) :</p>
-                <p class="font-bold">Surveillez activement le backlog N1 sur Freshservice !</p>
-                <p class="text-sm">Des tickets peuvent y rester bloqués, nécessitant votre intervention pour une escalade rapide.</p>
-            </div>
-        </div>
-
-        <!-- Arrow -->
-        <div class="arrow-icon arrow-mobile">&#8659;</div>
-        <div class="arrow-icon arrow-desktop">&#10140;</div>
-
-        <!-- Step 4: Affectation & Traitement N2 -->
-        <div class="step-card p-6 rounded-xl text-center w-full">
-            <div class="flex flex-col items-center">
-                <div class="step-icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-4xl font-bold">4</div>
-                <h2 class="text-2xl font-bold mb-2">Affectation & Traitement N2</h2>
-                <p class="text-md text-gray-700 dark:text-gray-300">
-                    Si nécessaire, le ticket est transféré au groupe <strong class="font-extrabold">N2 : Support-DMC-Licorne-N2</strong>.
-                </p>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Vos objectifs opérationnels :</p>
-                <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
-                    <li>Assurer le traitement N1 et N2.</li>
-                    <li>Accompagner les utilisateurs.</li>
-                    <li>Identifier : bug technique OU erreur de manipulation.</li>
-                    <li>Analyser l'origine : contexte, fréquence, données impactées, récurrence.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Arrow -->
-        <div class="arrow-icon arrow-mobile">&#8659;</div>
-        <div class="arrow-icon arrow-desktop">&#10140;</div>
-
-        <!-- Step 5: Suivi & Analyse Notion -->
-        <div class="step-card p-6 rounded-xl text-center w-full">
-            <div class="flex flex-col items-center">
-                <div class="step-icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-4xl font-bold">5</div>
-                <h2 class="text-2xl font-bold mb-2">Suivi & Analyse Notion</h2>
-                <p class="text-md text-gray-700 dark:text-gray-300">
-                    L'incident (ou la demande d'évolution) est enregistré dans <strong class="font-extrabold">Notion (Pipeline des remontées utilisateurs)</strong> pour traçabilité et analyse.
-                </p>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Champs clés à remplir :</p>
-                <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
-                    <li>Numéro OUV, Statut, Numéro Fresh</li>
-                    <li>Périmètre, Description du problème</li>
-                    <li>Analyse DT, Résultat / Solution</li>
-                </ul>
-            </div>
-            <p class="text-sm notion-text-blue font-bold mt-4">Catégorisation ESSENTIELLE pour les stats :</p>
-            <ul class="text-sm list-disc list-inside text-left w-full pl-4">
-                <li class="notion-text-red">Dysfonctionnement</li>
-                <li class="notion-text-green">Corrections</li>
-                <li class="notion-text-orange">Erreurs utilisateurs</li>
-                <li class="notion-text-blue">Évolution</li>
-                <li class="notion-text-purple">GAP Analysis</li>
-                <li class="notion-text-yellow">Délais synchro</li>
-            </ul>
-            <p class="text-sm text-gray-500 mt-4">Outil: Notion</p>
-        </div>
-
-    </section>
-
-    <!-- Specific Case: Evolution Requests -->
-    <section class="mt-16 mb-12 max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">Cas Spécifique : Demandes d'Évolution</h2>
-        <div class="evolution-flow-grid">
-            <div class="evolution-flow-card p-6 rounded-xl text-center w-full">
+            <!-- Step 1: Signalement Utilisateur -->
+            <div class="step-card rounded-xl w-full">
                 <div class="flex flex-col items-center">
-                    <div class="evolution-icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-4xl font-bold">✉️</div>
-                    <h3 class="text-2xl font-bold mb-2">Point d'entrée : Email</h3>
+                    <div class="step-icon-bg">1</div>
+                    <h2 class="text-2xl font-bold mb-2">Signalement Utilisateur</h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        Les demandes d'évolution sont à adresser par email à :<br>
-                        <strong class="font-extrabold">Aurélien DA COSTA (Chef de Projet)</strong><br>
-                        <strong class="font-extrabold">Avec copie à l'Assistant IT</strong>
+                        Pour toute demande ou incident, il est **impératif et obligatoire** de créer un ticket via Freshservice, notre plateforme de ticketing centralisée. C'est le seul canal officiel pour assurer une traçabilité et un suivi rigoureux de chaque sollicitation.
+                    </p>
+                </div>
+                <div class="alert-box text-sm font-semibold">
+                    <p class="font-bold mb-1">📢 Procédure Freshservice :</p>
+                    <p class="text-sm">
+                        1. Connectez-vous à <a href="https://proxisupport.freshservice.com" target="_blank" class="underline font-bold">proxisupport.freshservice.com</a><br>
+                        2. Cliquez sur "Nouvel Incident" ou "Nouvelle Demande" dans le menu principal.<br>
+                        3. Remplissez tous les champs avec un maximum de détails : description précise du problème, module Licorne concerné, impact, et n'oubliez pas d'ajouter des captures d'écran si pertinent.<br>
+                        4. Validez votre ticket pour soumission.
                     </p>
                 </div>
             </div>
 
-            <!-- Arrow -->
-            <div class="arrow-icon arrow-mobile">&#8659;</div>
-            <div class="arrow-icon arrow-desktop">&#10140;</div>
-
-            <div class="evolution-flow-card p-6 rounded-xl text-center w-full">
+            <!-- Step 2: Enregistrement Freshservice -->
+            <div class="step-card rounded-xl w-full">
                 <div class="flex flex-col items-center">
-                    <div class="evolution-icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-4xl font-bold">📊</div>
-                    <h3 class="text-2xl font-bold mb-2">Enregistrement dans Notion</h3>
+                    <div class="step-icon-bg">2</div>
+                    <h2 class="text-2xl font-bold mb-2">Enregistrement Freshservice</h2>
                     <p class="text-md text-gray-700 dark:text-gray-300">
-                        Ces demandes doivent être obligatoirement inscrites dans le <strong class="font-extrabold">Pipeline des remontées sur Notion</strong> pour analyse et prise de décision par la Direction Technique.
+                        Une fois soumis, le ticket est automatiquement créé et classé en <strong class="font-extrabold">Niveau 1 (N1)</strong> dans Freshservice. Cette catégorisation initiale s'effectue selon la région de l'utilisateur, permettant un aiguillage rapide et optimisé vers l'équipe N1 appropriée pour une première analyse.
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Classification Régionale :</p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                        <li>PXS_CPT-NE_Licorne_N1 (Nord/Est/Centre-Est)</li>
+                        <li>PXS_CPT-IDF_Licorne_N1 (Île-de-France)</li>
+                        <li>PXS_CPT-O_Licorne_N1 (Ouest)</li>
+                    </ul>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">Outil: Freshservice</p>
+            </div>
+
+            <!-- Step 3: Assignation & Surveillance (N1) -->
+            <div class="step-card rounded-xl w-full">
+                <div class="flex flex-col items-center">
+                    <div class="step-icon-bg">3</div>
+                    <h2 class="text-2xl font-bold mb-2">Assignation & Surveillance (N1)</h2>
+                    <p class="text-md text-gray-700 dark:text-gray-300">
+                        Un membre de l'équipe N1 s'assigne le ticket pour en prendre la responsabilité. Votre rôle est crucial ici : surveiller attentivement l'évolution de ces tickets et s'assurer qu'aucun ne reste bloqué sans traitement.
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Filtres Freshservice essentiels :</p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                        <li>Statut: Non résolu, En attente, Ouvert</li>
+                        <li>Département: PROXISERVE</li>
+                        <li>Groupes: Mes groupes</li>
+                    </ul>
+                </div>
+                <div class="alert-box text-sm font-semibold">
+                    <p class="font-bold text-lg mb-1">⚠️ Point d'attention N2 (DMC) :</p>
+                    <p class="font-bold">Surveillez activement le backlog N1 sur Freshservice !</p>
+                    <p class="text-sm">Des tickets peuvent y rester bloqués ou non assignés, nécessitant votre intervention proactive pour une escalade rapide vers le N2, garantissant ainsi la fluidité du processus.</p>
+                </div>
+            </div>
+
+            <!-- Step 4: Affectation au N2 -->
+            <div class="step-card rounded-xl w-full">
+                <div class="flex flex-col items-center">
+                    <div class="step-icon-bg">4</div>
+                    <h2 class="text-2xl font-bold mb-2">Affectation au N2</h2>
+                    <p class="text-md text-gray-700 dark:text-gray-300">
+                        Lorsque l'incident dépasse le périmètre de résolution du N1, requiert une expertise technique plus pointue, ou ne peut être résolu immédiatement, le ticket est transféré au groupe <strong class="font-extrabold">N2 : Support-DMC-Licorne-N2</strong>. Cette escalade assure que les problèmes complexes sont pris en charge par l'équipe spécialisée, optimisant ainsi le temps de résolution.
                     </p>
                 </div>
-                <p class="text-sm notion-text-blue font-bold mt-4">Catégorisation ESSENTIELLE :</p>
+            </div>
+
+            <!-- Step 5: Traitement de l'Incident -->
+            <div class="step-card rounded-xl w-full">
+                <div class="flex flex-col items-center">
+                    <div class="step-icon-bg">5</div>
+                    <h2 class="text-2xl font-bold mb-2">Traitement de l'Incident</h2>
+                    <p class="text-md text-gray-700 dark:text-gray-300">
+                        À cette étape, l'équipe N2 procède à une analyse approfondie pour identifier l'origine de l'incident (bug technique, erreur de manipulation, etc.). La résolution est ensuite appliquée, ou l'incident est escaladé si sa complexité ou son impact le justifient, assurant une gestion complète du problème et une communication transparente.
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Vos objectifs opérationnels :</p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                        <li>Assurer le traitement des incidents de niveau 1 et 2.</li>
+                        <li>Accompagner les utilisateurs dans la résolution de leurs demandes.</li>
+                        <li>Identifier s'il s'agit d'un bug technique ou d'une erreur de manipulation utilisateur.</li>
+                        <li>Analyser l'origine de l'incident : contexte, fréquence, données impactées, récurrence.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 6: Suivi & Analyse Notion -->
+            <div class="step-card rounded-xl w-full">
+                <div class="flex flex-col items-center">
+                    <div class="step-icon-bg">6</div>
+                    <h2 class="text-2xl font-bold mb-2">Suivi & Analyse Notion</h2>
+                    <p class="text-md text-gray-700 dark:text-gray-300">
+                        Chaque incident résolu (ou demande d'évolution) est scrupuleusement enregistré dans <strong class="font-extrabold">Notion (Pipeline des remontées utilisateurs)</strong>. Cette base de données centralisée est indispensable pour la traçabilité complète, l'analyse fonctionnelle des problèmes récurrents et la constitution d'un historique détaillé. Elle permet d'alimenter les tableaux de bord décisionnels.
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Champs clés à remplir :</p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                        <li>Numéro OUV, Statut, Numéro Fresh</li>
+                        <li>Périmètre, Description du problème</li>
+                        <li>Analyse DT, Résultat / Solution</li>
+                    </ul>
+                </div>
+                <p class="text-sm notion-text-blue font-bold mt-4">Catégorisation ESSENTIELLE pour les stats :</p>
                 <ul class="text-sm list-disc list-inside text-left w-full pl-4">
                     <li class="notion-text-red">Dysfonctionnement</li>
                     <li class="notion-text-green">Corrections</li>
@@ -394,6 +351,62 @@
                     <li class="notion-text-purple">GAP Analysis</li>
                     <li class="notion-text-yellow">Délais synchro</li>
                 </ul>
+                <p class="text-sm text-gray-500 mt-4">Outil: Notion</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: Cas Spécifique : Demandes d'Évolution -->
+    <section class="mt-16 mb-12 max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">Cas Spécifique : Demandes d'Évolution</h2>
+        <div class="evolution-flow-grid">
+            <!-- Evolution Tile 1: Point d'entrée Email -->
+            <div class="evolution-flow-card rounded-xl w-full">
+                <div class="flex flex-col items-center">
+                    <div class="evolution-icon-bg">✉️</div>
+                    <h3 class="text-2xl font-bold mb-2">Point d'entrée : Email</h3>
+                    <p class="text-md text-gray-700 dark:text-gray-300">
+                        Toute demande d'évolution fonctionnelle ou technique doit être initiée par un email détaillé. C'est le canal officiel pour soumettre des propositions d'amélioration et de nouvelles fonctionnalités, garantissant une bonne compréhension du besoin et une traçabilité dès l'origine du projet.
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 font-semibold">Destinataires :</p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-400 list-disc list-inside text-left w-full pl-4">
+                        <li><strong class="font-extrabold">Aurélien DA COSTA (Chef de Projet)</strong></li>
+                        <li><strong class="font-extrabold">Copie à l'Assistant IT</strong> (pour traçabilité et suivi initial)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Evolution Tile 2: Enregistrement dans Notion -->
+            <div class="evolution-flow-card rounded-xl w-full">
+                <div class="flex flex-col items-center">
+                    <div class="evolution-icon-bg">📊</div>
+                    <h3 class="text-2xl font-bold mb-2">Enregistrement dans Notion</h3>
+                    <p class="text-md text-gray-700 dark:text-gray-300">
+                        Ces demandes, une fois reçues, doivent être obligatoirement inscrites dans le <strong class="font-extrabold">Pipeline des remontées sur Notion</strong>. Cette étape est cruciale pour centraliser toutes les demandes d'évolution, assurer leur suivi, les préparer pour l'analyse et la décision, et maintenir une vision globale des projets.
+                    </p>
+                    <p class="text-sm notion-text-blue font-bold mt-4">Catégorisation ESSENTIELLE :</p>
+                    <ul class="text-sm list-disc list-inside text-left w-full pl-4">
+                        <li class="notion-text-red">Dysfonctionnement</li>
+                        <li class="notion-text-green">Corrections</li>
+                        <li class="notion-text-orange">Erreurs utilisateurs</li>
+                        <li class="notion-text-blue">Évolution</li>
+                        <li class="notion-text-purple">GAP Analysis</li>
+                        <li class="notion-text-yellow">Délais synchro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Evolution Tile 3: Analyse & Décision DT -->
+            <div class="evolution-flow-card rounded-xl w-full">
+                <div class="flex flex-col items-center">
+                    <div class="evolution-icon-bg">✅</div>
+                    <h3 class="text-2xl font-bold mb-2">Analyse & Décision DT</h3>
+                    <p class="text-md text-gray-700 dark:text-gray-300">
+                        Les demandes d'évolution enregistrées dans Notion sont ensuite analysées en profondeur par la Direction Technique. C'est à cette étape que les décisions sont prises concernant la faisabilité technique, la priorisation et la planification des développements futurs, en accord avec la stratégie globale et les ressources disponibles.
+                    </p>
+                    <p class="text-sm text-gray-500 mt-4">Outil: Notion</p>
+                </div>
             </div>
         </div>
     </section>
