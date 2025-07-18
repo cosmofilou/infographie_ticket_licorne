@@ -1,4 +1,4 @@
-# 🇫🇷 Présentation Interactive : Le Parcours du Ticket Licorne 🚀
+# Présentation Interactive : Le Parcours du Ticket Licorne 🚀
 
 ---
 
