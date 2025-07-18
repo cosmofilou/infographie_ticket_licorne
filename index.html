@@ -303,6 +303,7 @@
             gap: 2rem;
             align-items: stretch;
             justify-items: center;
+            max-width: 100%; /* Ensure it doesn't overflow */
         }
 
         /* Adjusted title font size for h2 within step-card */
@@ -313,7 +314,7 @@
 
         @media (min-width: 1024px) { /* Desktop layout for 3x2 grid */
             .incident-flow-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr)); /* Use minmax(0, 1fr) for equal width columns */
+                grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
                 grid-auto-rows: 1fr; /* Ensures all rows have same height */
                 gap: 1.5rem; /* Smaller gap for tighter layout */
             }
@@ -326,11 +327,12 @@
             gap: 2rem;
             align-items: stretch;
             justify-items: center;
+            max-width: 100%; /* Ensure it doesn't overflow */
         }
 
         @media (min-width: 768px) {
             .evolution-flow-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr)); /* Use minmax(0, 1fr) for equal width columns */
+                grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
                 grid-auto-rows: 1fr;
                 gap: 1.5rem;
             }
